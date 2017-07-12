@@ -1,4 +1,4 @@
-import { ADD_TODO } from './actionTypes.js'
+import { ADD_TODO, TOGGLE_TODO } from './actionTypes.js'
 
 export default (state = [], action) => {
   switch (action.type) {
@@ -12,6 +12,11 @@ export default (state = [], action) => {
         ...state
       ]
 
+    case TOGGLE_TODO:
+      
+      
+
+      ]
     default:
       return state;
   }
