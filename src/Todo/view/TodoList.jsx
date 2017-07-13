@@ -2,20 +2,20 @@ import React from 'react'
 // import PropTypes from 'prop-type'
 
 import { connect } from 'react-redux'
-
+import {toggleTodo, removeTodo} from '../actions.js'
 import TodoItem from './TodoItem.jsx'
 
-const TodoList = ({ todos }) => {
-
+const TodoList = ({ todos, toggoleItem, removeItem}) => {
   return (
     <ul>
       {
         todos.map((item) => (
           <TodoItem 
             key={item.id}
-            id={item.id}
             text={item.text}
             completed={item.completed}
+            onToggle={()=>{toggoleItem(item.id)}}
+            onRemove={()=>{removeItem(item.id)}}
           />
         ))
       }
@@ -28,5 +28,16 @@ const mapState = (state) => {
     todos: state
   }
 }
-export default connect(mapState, null)(TodoList)
+const mapDispatch = (dispatch) => {
+  return {
+    toggoleItem: (id) => {
+      dispatch(toggleTodo(id))
+    },
+    removeItem: (id) => {
+      dispatch(removeTodo(id))
+    },
+  }
+}
+
+export default connect(mapState, mapDispatch)(TodoList)
 

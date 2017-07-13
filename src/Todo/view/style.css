@@ -13,7 +13,11 @@ li,ul{
     border: 1px solid deepskyblue;
 }
 .item-content{
-    margin-right: 240px;
+    margin-right: 150px;
+    
+}
+.item-content-done{
+    text-decoration: line-through;
 }
 .del-item{
     cursor: pointer;
